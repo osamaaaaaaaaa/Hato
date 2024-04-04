@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "32727623785",
+    "project_id": "famcon-acdde",
+    "storage_bucket": "famcon-acdde.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32727623785:android:199b1c82bf288e11e15af8",
+        "android_client_info": {
+          "package_name": "com.example.superconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "32727623785-evt8qeh8n6sk34p9i7s14i10d92v76dh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2LQKs50QJrl1p44OOwOLdg4T1xlBlRAc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "32727623785-evt8qeh8n6sk34p9i7s14i10d92v76dh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
