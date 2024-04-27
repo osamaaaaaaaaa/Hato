@@ -28,6 +28,7 @@ class HomeController extends GetxController {
   var user = FirebaseAuth.instance.currentUser?.uid;
   //Widget widget = Home();
   UserModel? info;
+  bool guest = false;
   List<UserModel> familyList = [];
   HomeController() {
     getInfo();
@@ -39,6 +40,10 @@ class HomeController extends GetxController {
     await db.collection('users').doc(user).get().then((value) async {
       if (value.data() != null) {
         info = UserModel.fromJson(value.data()!);
+        if (info?.name == 'guest') {
+          guest = true;
+          update();
+        }
         getFamily();
         getRequests();
         info?.token = await FirebaseMessaging.instance.getToken();

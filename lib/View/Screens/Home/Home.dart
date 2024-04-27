@@ -6,6 +6,7 @@ import 'package:superconnect/Controller/HomeController.dart';
 import 'package:superconnect/Controller/RequestsController.dart';
 import 'package:superconnect/Controller/SettingController.dart';
 import 'package:superconnect/Utils/Colors.dart';
+import 'package:superconnect/Utils/Helper.dart';
 import 'package:superconnect/View/Screens/Settings/CategoriesMangment.dart';
 import 'package:superconnect/View/Screens/Settings/Drafts.dart';
 import 'package:superconnect/View/Screens/Settings/Profile.dart';
@@ -85,6 +86,10 @@ class Home extends StatelessWidget {
                                 children: [
                                   InkWell(
                                     onTap: () {
+                                      if (controller.guest) {
+                                        AppHelper().shouldSignin();
+                                        return;
+                                      }
                                       controller.addNewFamilyMember();
                                     },
                                     child: Container(
@@ -301,6 +306,10 @@ Widget buildMenu(context, name, id) {
           ),
           InkWell(
             onTap: () {
+              if (controller.guest) {
+                AppHelper().shouldSignin();
+                return;
+              }
               Get.to(() => Profile());
             },
             child: Container(
@@ -335,6 +344,10 @@ Widget buildMenu(context, name, id) {
           GetBuilder<HomeController>(
             builder: (controller) => InkWell(
               onTap: () {
+                if (controller.guest) {
+                  AppHelper().shouldSignin();
+                  return;
+                }
                 PersonsAlertWidget(controller: controller);
                 // Get.to(() => AddNewRequest(
                 //       ReciverId: 'dd',
@@ -373,6 +386,10 @@ Widget buildMenu(context, name, id) {
           GetBuilder<RequestsController>(
             builder: (controller) => InkWell(
               onTap: () {
+                if (controller.info?.name == 'guest') {
+                  AppHelper().shouldSignin();
+                  return;
+                }
                 controller.getDrafts();
                 Get.to(() => Drafts());
               },
@@ -408,6 +425,10 @@ Widget buildMenu(context, name, id) {
           ),
           InkWell(
             onTap: () {
+              if (controller.guest) {
+                AppHelper().shouldSignin();
+                return;
+              }
               Get.to(() => CategoriesMangment());
             },
             child: Container(

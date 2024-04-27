@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:superconnect/Controller/ChatController.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import 'package:superconnect/Utils/Helper.dart';
 import 'package:superconnect/Utils/Images.dart';
 import 'package:superconnect/View/Screens/Chat/Conversation.dart';
 import 'package:superconnect/View/Screens/Chat/groupConversation.dart';
@@ -74,6 +75,11 @@ class ChatsHistory extends StatelessWidget {
                                             (controller.groupsList.length) + 1
                                         ? InkWell(
                                             onTap: () {
+                                              if (controller.info?.name ==
+                                                  'guest') {
+                                                AppHelper().shouldSignin();
+                                                return;
+                                              }
                                               controller.addNewGroup();
                                             },
                                             child: Person(

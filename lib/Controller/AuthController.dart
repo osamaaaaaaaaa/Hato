@@ -27,56 +27,56 @@ class AuthController extends GetxController {
 
   bool loading = false;
   var db = FirebaseFirestore.instance;
-  //Register({required UserModel model}) async {
-  // loading = true;
-  // update();
-  // try {
-  //   final credential =
-  //       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-  //     email: model.email!.trim().toString(),
-  //     password: model.pass!.trim().toString(),
-  //   );
-  //   AddNewUserToDb(model: model, userId: credential.user?.uid);
-  // } on FirebaseAuthException catch (e) {
-  //   if (e.code == 'weak-password') {
-  //     loading = false;
+  Register({required UserModel model}) async {
+    loading = true;
+    update();
+    try {
+      final credential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: model.email!.trim().toString(),
+        password: model.pass!.trim().toString(),
+      );
+      AddNewUserToDb(model: model, userId: credential.user?.uid);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        loading = false;
 
-  //     update();
-  //     AppHelper.errorsnackbar('The password provided is too weak.');
-  //   } else if (e.code == 'email-already-in-use') {
-  //     loading = false;
-  //     update();
-  //     AppHelper.errorsnackbar('The account already exists for that email.');
-  //   }
-  // } catch (e) {
-  //   loading = false;
-  //   update();
-  //   print(e);
-  // }
-  //}
+        update();
+        AppHelper.errorsnackbar('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        loading = false;
+        update();
+        AppHelper.errorsnackbar('The account already exists for that email.');
+      }
+    } catch (e) {
+      loading = false;
+      update();
+      print(e);
+    }
+  }
 
   signIn({required emailAddress, required password}) async {
     User? user = FirebaseAuth.instance.currentUser;
     print(user);
-    // loading = true;
-    // update();
-    // try {
-    //   final credential = await FirebaseAuth.instance
-    //       .signInWithEmailAndPassword(email: emailAddress, password: password);
-    //   Get.off(() => Home());
-    // } on FirebaseAuthException catch (e) {
-    //   if (e.code == 'user-not-found') {
-    //     loading = false;
-    //     update();
-    //     print('No user found for that email.');
-    //   } else if (e.code == 'wrong-password') {
-    //     loading = false;
-    //     update();
+    loading = true;
+    update();
+    try {
+      final credential = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: emailAddress, password: password);
+      Get.off(() => Home());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        loading = false;
+        update();
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        loading = false;
+        update();
 
-    //     print('Wrong password provided for that user.');
-    //   }
-    //   loading = false;
-    // }
+        print('Wrong password provided for that user.');
+      }
+      loading = false;
+    }
   }
 
   AddNewUserToDb({required UserModel model, required userId}) async {

@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:superconnect/View/Screens/Auth/Login.dart';
+import 'package:superconnect/View/Widgets/Button.dart';
 
 class AppHelper {
   static errorsnackbar(error) {
@@ -12,5 +14,36 @@ class AppHelper {
   static succssessnackbar(succs) {
     return Get.snackbar('Succsses', succs,
         backgroundColor: Colors.green, colorText: Colors.white);
+  }
+
+  shouldSignin() {
+    Get.defaultDialog(
+        title: '',
+        content: Text(
+          'لست مستخدم يرجى تسجيل الدخول',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        actions: [
+          button(
+              color: Colors.green,
+              title: 'continue'.tr,
+              fontsize: 15,
+              fontColor: Colors.white,
+              height: 40,
+              function: () {
+                Get.to(() => Login());
+              },
+              width: Get.width),
+          button(
+              color: Colors.red,
+              title: 'cancel'.tr,
+              fontsize: 15,
+              fontColor: Colors.white,
+              height: 40,
+              function: () {
+                Get.back();
+              },
+              width: Get.width)
+        ]);
   }
 }

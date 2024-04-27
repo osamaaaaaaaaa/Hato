@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:superconnect/Controller/AuthController.dart';
+import 'package:superconnect/Model/UserModel.dart';
 import 'package:superconnect/Utils/Images.dart';
 import 'package:superconnect/View/Screens/Auth/Register.dart';
 import 'package:superconnect/View/Screens/guest/guest.dart';
@@ -79,7 +80,6 @@ class Login extends StatelessWidget {
                       height: 40,
                       function: () {
                         controller.CheckIfExist(mobile.text.trim().toString());
-                        //  controller.phoneSignIn(phoneNumber: mobile.text);
                       },
                       width: Get.width * 0.9),
               button(
@@ -101,7 +101,8 @@ class Login extends StatelessWidget {
                   borderColor: AppColors.color1,
                   height: 40,
                   function: () {
-                    Get.to(() => guest());
+                    controller.signIn(
+                        emailAddress: 'guest@guest.com', password: '123123122');
                   },
                   width: Get.width * 0.9),
             ],
