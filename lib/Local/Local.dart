@@ -58,13 +58,13 @@ class Lan extends Translations {
           "shoulsignin": 'لست مستخدم يرجى تسجيل الدخول',
           "signin": "تسجيل دخول",
           "signup": "التسجيل",
-          "addmobile": "برجاء اضافه رقم الهاتف",
+          "addmobile": " برجاء ادخال رقم الهاتف لتسجيل الدخول",
           "ok": "حسنا",
         },
         "en": {
           "continue": "continue",
           "send": "send",
-          "dnthaveacc": "New Account",
+          "dnthaveacc": "Sign up",
           "email": "Email",
           "pass": "Password",
           "cat": "categories",
@@ -106,7 +106,7 @@ class Lan extends Translations {
           "guest": "Continue as guest",
           "shoulsignin": "You are no a register user please login",
           "signin": "Sign In",
-          "addmobile": "Please Add Mobile Number",
+          "addmobile": "Enter Mobile to login",
           "ok": 'Ok'
         }
       };

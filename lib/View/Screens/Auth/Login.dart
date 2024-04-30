@@ -36,6 +36,21 @@ class Login extends StatelessWidget {
                 height: 50,
               ),
               Container(
+                  margin: EdgeInsets.symmetric(horizontal: 15),
+                  alignment: Get.locale.toString() == 'ar'
+                      ? Alignment.centerRight
+                      : Alignment.centerLeft,
+                  child: Text(
+                    'addmobile'.tr,
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.color1),
+                  )),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
                 width: Get.width * 0.85,
                 height: 50,
                 margin: EdgeInsets.symmetric(horizontal: 17),
