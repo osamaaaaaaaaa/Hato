@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:superconnect/Controller/AuthController.dart';
 import 'package:superconnect/Model/UserModel.dart';
+import 'package:superconnect/Utils/Helper.dart';
 import 'package:superconnect/Utils/Images.dart';
 import 'package:superconnect/View/Screens/Auth/Register.dart';
 import 'package:superconnect/View/Screens/guest/guest.dart';
@@ -74,11 +75,15 @@ class Login extends StatelessWidget {
                     )
                   : button(
                       color: AppColors.color1,
-                      title: 'continue'.tr,
+                      title: 'signin'.tr,
                       fontsize: 15,
                       fontColor: Colors.white,
                       height: 40,
                       function: () {
+                        if (mobile.text.isEmpty) {
+                          AppHelper().addmobile();
+                          return;
+                        }
                         controller.CheckIfExist(mobile.text.trim().toString());
                       },
                       width: Get.width * 0.9),

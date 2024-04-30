@@ -20,7 +20,7 @@ class AppHelper {
     Get.defaultDialog(
         title: '',
         content: Text(
-          'لست مستخدم يرجى تسجيل الدخول',
+          'shoulsignin'.tr,
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         actions: [
@@ -44,6 +44,27 @@ class AppHelper {
                 Get.back();
               },
               width: Get.width)
+        ]);
+  }
+
+  addmobile() {
+    Get.defaultDialog(
+        title: '',
+        content: Text(
+          'addmobile'.tr,
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        actions: [
+          button(
+              color: Colors.green,
+              title: 'ok'.tr,
+              fontsize: 15,
+              fontColor: Colors.white,
+              height: 40,
+              function: () {
+                Get.back();
+              },
+              width: Get.width),
         ]);
   }
 }

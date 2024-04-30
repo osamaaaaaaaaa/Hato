@@ -54,7 +54,12 @@ class Lan extends Translations {
           "saveasdraft": "حفظ ك مسوده",
           "drafts": "مسودات",
           "addcat": "اضافه قسم",
-          "guest": "الدخول ك ضيف"
+          "guest": "الدخول ك ضيف",
+          "shoulsignin": 'لست مستخدم يرجى تسجيل الدخول',
+          "signin": "تسجيل دخول",
+          "signup": "التسجيل",
+          "addmobile": "برجاء اضافه رقم الهاتف",
+          "ok": "حسنا",
         },
         "en": {
           "continue": "continue",
@@ -98,7 +103,11 @@ class Lan extends Translations {
           "photo": "Photo",
           "cancel": "Cancel",
           "logout": "Sign Out",
-          "guest": "Continue as guest"
+          "guest": "Continue as guest",
+          "shoulsignin": "You are no a register user please login",
+          "signin": "Sign In",
+          "addmobile": "Please Add Mobile Number",
+          "ok": 'Ok'
         }
       };
 }

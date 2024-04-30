@@ -83,17 +83,18 @@ class Register extends StatelessWidget {
                     )
                   : button(
                       color: AppColors.color1,
-                      title: 'continue'.tr,
+                      title: 'signup'.tr,
                       fontsize: 15,
                       fontColor: Colors.white,
                       height: 40,
                       function: () {
                         if (username.text.isEmpty || mobile.text.isEmpty) {
+                          AppHelper().addmobile();
+
                           return;
                         }
                         if (mobile.text.length < 5 ||
                             username.text.length < 3) {
-                          AppHelper.errorsnackbar('mobile'.tr);
                           return;
                         }
                         controller.model = UserModel(
