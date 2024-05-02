@@ -105,7 +105,7 @@ class AuthController extends GetxController {
       if (value.docs.isNotEmpty) {
         phoneSignIn(phoneNumber: mobile);
       } else {
-        AppHelper.errorsnackbar('error');
+        AppHelper().errorDialog(title: 'Not Found'.tr);
         loading = false;
         update();
       }
@@ -115,6 +115,7 @@ class AuthController extends GetxController {
   String? verificationId;
   Future<void> phoneSignIn({required String phoneNumber}) async {
     loading = true;
+    update();
     await _auth.verifyPhoneNumber(
         phoneNumber: phoneNumber,
         verificationCompleted: _onVerificationCompleted,
@@ -148,6 +149,9 @@ class AuthController extends GetxController {
     if (exception.code == 'invalid-phone-number') {
       showMessage("The phone number entered is invalid!");
     }
+    showMessage(exception.toString());
+    loading = false;
+    update();
   }
 
   _onCodeSent(String verificationId, int? forceResendingToken) {
@@ -160,6 +164,8 @@ class AuthController extends GetxController {
   }
 
   _onCodeTimeout(String timeout) {
+    loading = false;
+    update();
     return null;
   }
 

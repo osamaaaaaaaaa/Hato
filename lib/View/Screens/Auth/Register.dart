@@ -64,7 +64,7 @@ class Register extends StatelessWidget {
                   ignoreBlank: false,
                   autoValidateMode: AutovalidateMode.disabled,
                   selectorTextStyle: TextStyle(color: Colors.black),
-                  formatInput: true,
+                  formatInput: false,
                   keyboardType: TextInputType.numberWithOptions(
                       signed: true, decimal: true),
                   inputBorder: OutlineInputBorder(),

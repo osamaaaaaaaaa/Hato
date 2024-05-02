@@ -69,12 +69,12 @@ class Login extends StatelessWidget {
                   selectorConfig: SelectorConfig(
                     selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
                   ),
-                  ignoreBlank: false,
+                  ignoreBlank: true,
                   autoValidateMode: AutovalidateMode.disabled,
                   selectorTextStyle: TextStyle(color: Colors.black),
-                  formatInput: true,
+                  formatInput: false,
                   keyboardType: TextInputType.numberWithOptions(
-                      signed: true, decimal: true),
+                      decimal: false, signed: false),
                   inputBorder: OutlineInputBorder(),
                   onSaved: (PhoneNumber number) {
                     print('On Saved: $number');

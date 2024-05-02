@@ -67,4 +67,25 @@ class AppHelper {
               width: Get.width),
         ]);
   }
+
+  errorDialog({required title}) {
+    Get.defaultDialog(
+        title: '',
+        content: Text(
+          '$title',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        actions: [
+          button(
+              color: Colors.green,
+              title: 'ok'.tr,
+              fontsize: 15,
+              fontColor: Colors.white,
+              height: 40,
+              function: () {
+                Get.back();
+              },
+              width: Get.width),
+        ]);
+  }
 }
