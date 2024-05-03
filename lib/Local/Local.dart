@@ -60,6 +60,7 @@ class Lan extends Translations {
           "signup": "التسجيل",
           "addmobile": " برجاء ادخال رقم الهاتف لتسجيل الدخول",
           "ok": "حسنا",
+          "deleteacc": "حذف الحساب"
         },
         "en": {
           "continue": "continue",
@@ -107,7 +108,8 @@ class Lan extends Translations {
           "shoulsignin": "You are no a register user please login",
           "signin": "Sign In",
           "addmobile": "Enter Mobile to login",
-          "ok": 'Ok'
+          "ok": 'Ok',
+          "deleteacc": "Delete Account"
         }
       };
 }

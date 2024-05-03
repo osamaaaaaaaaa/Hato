@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:superconnect/Utils/Colors.dart';
 import 'package:superconnect/View/Screens/Auth/Login.dart';
 import 'package:superconnect/View/Widgets/Button.dart';
 
@@ -14,6 +15,32 @@ class AppHelper {
   static succssessnackbar(succs) {
     return Get.snackbar('Succsses', succs,
         backgroundColor: Colors.green, colorText: Colors.white);
+  }
+
+  showAreSureMoreDialg({required String? title, required Function() ontap}) {
+    Get.defaultDialog(
+        content: Container(),
+        title: title ?? 'Are u Sure ?',
+        actions: [
+          button(
+              color: AppColors.color1,
+              title: 'ok'.tr,
+              fontsize: 15,
+              fontColor: Colors.white,
+              height: 40,
+              function: ontap,
+              width: Get.width / 2),
+          button(
+              color: Colors.red,
+              title: 'cancel'.tr,
+              fontsize: 15,
+              fontColor: Colors.white,
+              height: 40,
+              function: () {
+                Get.back();
+              },
+              width: Get.width / 2)
+        ]);
   }
 
   shouldSignin() {

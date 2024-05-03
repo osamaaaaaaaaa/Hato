@@ -542,7 +542,7 @@ Widget buildMenu(context, name, id) {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    'logout'.tr,
+                    !controller.guest ? 'logout'.tr : 'signin'.tr,
                     style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,

@@ -1,9 +1,11 @@
 // ignore_for_file: use_key_in_widget_constructors, must_be_immutable, prefer_const_constructors, file_names
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:superconnect/Controller/SettingController.dart';
 import 'package:superconnect/Utils/Helper.dart';
+import 'package:superconnect/View/Screens/Auth/Login.dart';
 import 'package:superconnect/View/Widgets/TextField.dart';
 
 import '../../../Utils/Colors.dart';
@@ -98,9 +100,22 @@ class Profile extends StatelessWidget {
                         controller.editUser();
                       },
                       width: Get.width * 0.9),
-              const SizedBox(
-                height: 30,
-              )
+
+              button(
+                  color: Colors.red,
+                  title: 'deleteacc'.tr,
+                  fontsize: 15,
+                  fontColor: Colors.white,
+                  height: 50,
+                  function: () {
+                    AppHelper().showAreSureMoreDialg(
+                        title: 'deleteacc'.tr,
+                        ontap: () {
+                          FirebaseAuth.instance.currentUser?.delete();
+                          Get.offAll(() => Login());
+                        });
+                  },
+                  width: Get.width)
             ],
           ),
         ),

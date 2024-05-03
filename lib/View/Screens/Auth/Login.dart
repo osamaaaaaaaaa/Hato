@@ -99,6 +99,8 @@ class Login extends StatelessWidget {
                           AppHelper().addmobile();
                           return;
                         }
+                        print(mobile.text);
+                        //  return;
                         controller.CheckIfExist(mobile.text.trim().toString());
                       },
                       width: Get.width * 0.9),

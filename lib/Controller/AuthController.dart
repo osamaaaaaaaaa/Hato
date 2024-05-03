@@ -146,6 +146,7 @@ class AuthController extends GetxController {
   }
 
   _onVerificationFailed(FirebaseAuthException exception) {
+    AppHelper.errorsnackbar(exception);
     if (exception.code == 'invalid-phone-number') {
       showMessage("The phone number entered is invalid!");
     }
